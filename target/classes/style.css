@@ -1,0 +1,18 @@
+/*.table-row-cell {*/
+/*    -fx-cell-size: 20px;*/
+/*}*/
+
+.button {
+    color: rgba(0, 0, 0, 1);
+}
+
+
+.bodybg{
+    -fx-background-image: url('images/fon2.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.bodybg2{
+    -fx-background-image: url('images/fonS.jpg');
+    -fx-background-size: 100% 100%;
+}
