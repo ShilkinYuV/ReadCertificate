@@ -8,10 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -61,7 +58,6 @@ public class PrimaryController {
     @FXML public TextField editPole;
     @FXML public MenuItem about;
     @FXML public MenuItem settings;
-    @FXML public MenuItem settingsSend;
     @FXML public ProgressIndicator progress;
     @FXML public AnchorPane ancor;
     @FXML public Label countRow;
@@ -101,6 +97,7 @@ public class PrimaryController {
 
     @FXML
     public void initialize() {
+
 
         setControl1();
         setControl2();

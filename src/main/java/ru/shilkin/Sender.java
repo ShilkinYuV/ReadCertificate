@@ -1,5 +1,7 @@
 package ru.shilkin;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.*;
@@ -11,16 +13,30 @@ public class Sender {
     private String username;
     private String password;
     private Properties props;
+    String mailhost;
+    String mailport;
+    String mailtls;
 
     public Sender(String username, String password) {
         this.username = username;
         this.password = password;
 
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("C:\\Янтарь\\settingsdb.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mailhost = properties.getProperty("mailhost");
+        mailport = properties.getProperty("mailport");
+        mailtls = properties.getProperty("mailtls");
+
         props = new Properties();
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.starttls.enable", mailtls);
+        props.put("mail.smtp.host", mailhost);
+        props.put("mail.smtp.port", mailport);
     }
 
 

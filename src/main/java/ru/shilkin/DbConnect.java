@@ -4,25 +4,47 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
+import java.util.Properties;
 
 public class DbConnect {
     Settings settings = new Settings();
     Connection dbConnection;
     Statement st;
     String alMess;
+    String localhost;
+    String namedb;
+    String user;
+    String password;
+    String mail;
+    String mailpass;
     static boolean checkWarning = false;
 
     //    PreparedStatement prst;
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
+
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("C:\\Янтарь\\settingsdb.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        localhost  = properties.getProperty("localhost");
+        namedb  = properties.getProperty("namedb");
+        user  = properties.getProperty("user");
+        password  = properties.getProperty("password");
+
         Class.forName("org.postgresql.Driver");
-        String connectionString = "jdbc:postgresql://localhost:5432/postgres";
+        String connectionString = "jdbc:postgresql://" + localhost + "/" + namedb;
         dbConnection = DriverManager.getConnection(connectionString,
-                "postgres", "P@ssw0rd");
+                user, password);
         return dbConnection;
     }
 
@@ -122,7 +144,6 @@ public class DbConnect {
         String mailBagninova = "";
         String mailLobanova = "";
 
-
         try{
 
             int numbDay = Integer.valueOf(sPeriodCert);
@@ -182,21 +203,30 @@ public class DbConnect {
             checkWarning = false;
         }
 
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("C:\\Янтарь\\settingsdb.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        mail  = properties.getProperty("mail");
+        mailpass  = properties.getProperty("mailpass");
 
 
         if(mailShilkin != "" & toMail & !mailC1.equals("")){
-            Sender sender = new Sender("4800amber@gmail.com", "gdychsajxuskakrx");
-            sender.send("Уведомление Янтарь", mailShilkin, "4800amber@gmail.com" , mailC1);
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailShilkin, mail , mailC1);
         }
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         if(mailGolokov != "" & toMail & !mailP1.equals("")){
-            Sender sender = new Sender("4800amber@gmail.com", "gdychsajxuskakrx");
-            sender.send("Уведомление Янтарь", mailGolokov, "4800amber@gmail.com", mailP1);
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailGolokov, mail, mailP1);
         }
         try {
             Thread.sleep(1000);
@@ -204,8 +234,8 @@ public class DbConnect {
             e.printStackTrace();
         }
         if(mailBagninova != "" & toMail & !mailC2.equals("")){
-            Sender sender = new Sender("4800amber@gmail.com", "gdychsajxuskakrx");
-            sender.send("Уведомление Янтарь", mailBagninova, "4800amber@gmail.com", mailC2);
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailBagninova, mail, mailC2);
         }
         try {
             Thread.sleep(1000);
@@ -213,9 +243,10 @@ public class DbConnect {
             e.printStackTrace();
         }
         if(mailLobanova != "" & toMail & !mailP2.equals("")){
-            Sender sender = new Sender("4800amber@gmail.com", "gdychsajxuskakrx");
-            sender.send("Уведомление Янтарь", mailLobanova, "4800amber@gmail.com", mailP2);
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailLobanova, mail, mailP2);
         }
+
 
 
         return res;
