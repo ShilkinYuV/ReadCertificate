@@ -10,7 +10,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 /**
  * JavaFX App
@@ -21,19 +24,37 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1350, 667);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/roskazna.png")));
-        stage.setTitle("UFK4800_OIS_AMBER_CHEKER_CERT");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent e) {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
+        File f = new File("C:\\Янтарь\\settingsdb.properties");
+        if(f.exists() && !f.isDirectory()) {
+            scene = new Scene(loadFXML("primary"), 1350, 667);
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/roskazna.png")));
+            stage.setTitle("UFK4800_OIS_AMBER_CHEKER_CERT");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent e) {
+                    Platform.exit();
+                    System.exit(0);
+                }
+            });
+        }else{
+            scene = new Scene(loadFXML("chekProperty"), 400, 450);
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/roskazna.png")));
+            stage.setTitle("System settings");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent e) {
+                    Platform.exit();
+                    System.exit(0);
+                }
+            });
+        }
+
 
     }
 
