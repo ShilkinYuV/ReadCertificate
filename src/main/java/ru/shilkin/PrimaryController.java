@@ -87,12 +87,16 @@ public class PrimaryController {
     String selectContentTable;
     String mailC1 = "";
     String mailC2 = "";
+    String mailC3 = "";
     String mailP1 = "";
     String mailP2 = "";
+    String mailP3 = "";
     String fioC1 = "";
     String fioC2 = "";
+    String fioC3 = "";
     String fioP1 = "";
     String fioP2 = "";
+    String fioP3 = "";
 
 
     @FXML
