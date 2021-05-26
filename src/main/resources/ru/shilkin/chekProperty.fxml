@@ -21,8 +21,8 @@
             <TextField fx:id="namedb" promptText="Имя БД" />
             <TextField fx:id="user" promptText="Логин для доступа к БД" />
             <PasswordField fx:id="password" promptText="Пароль для доступа к БД" />
-            <TextField fx:id="mailhost" promptText="IP адрес сервера Exchаngе" />
-            <TextField fx:id="mailport" promptText="Порт сервера Exchаngе" />
+            <TextField fx:id="mailhost" promptText="IP адрес сервера почты" />
+            <TextField fx:id="mailport" promptText="Порт сервера почты" />
             <TextField fx:id="mailtls" promptText="Использовать TLS(truе или false" />
             <TextField fx:id="mail" prefHeight="89.0" prefWidth="361.0" promptText="Адрес электронной почты отправителя" />
             <PasswordField fx:id="mailpass" promptText="Пароль от почты отправителя" />
