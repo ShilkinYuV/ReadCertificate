@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="272.0" prefWidth="443.0" styleClass="bodybg2" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.Settings">
+<AnchorPane prefHeight="318.0" prefWidth="426.0" styleClass="bodybg2" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.Settings">
    <children>
       <TextField fx:id="periodCert" layoutX="211.0" layoutY="20.0" prefHeight="25.0" prefWidth="87.0" />
       <TextField fx:id="intervalProv" layoutX="211.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
@@ -21,16 +21,16 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="ok" layoutX="342.0" layoutY="225.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@../../styletable.css" text="ОК" />
+      <Button fx:id="ok" layoutX="321.0" layoutY="280.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" stylesheets="@../../styletable.css" text="ОК" />
       <TextField fx:id="con1" editable="false" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="154.0" promptText="Control Основной" />
       <TextField fx:id="con2" editable="false" layoutX="14.0" layoutY="127.0" prefHeight="25.0" prefWidth="154.0" promptText="Control Резервный" />
-      <TextField fx:id="proc1" editable="false" layoutX="14.0" layoutY="156.0" prefHeight="25.0" prefWidth="154.0" promptText="Processing основной" />
-      <TextField fx:id="proc2" editable="false" layoutX="14.0" layoutY="185.0" prefHeight="25.0" prefWidth="154.0" promptText="Processing резервный" />
+      <TextField fx:id="proc1" editable="false" layoutX="14.0" layoutY="185.0" prefHeight="25.0" prefWidth="154.0" promptText="Processing основной" />
+      <TextField fx:id="proc2" editable="false" layoutX="14.0" layoutY="214.0" prefHeight="25.0" prefWidth="154.0" promptText="Processing резервный" />
       <TextField fx:id="mcon1" editable="false" layoutX="174.0" layoutY="98.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
       <TextField fx:id="mcon2" editable="false" layoutX="174.0" layoutY="127.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
-      <TextField fx:id="mproc1" editable="false" layoutX="174.0" layoutY="156.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
-      <TextField fx:id="mproc2" editable="false" layoutX="174.0" layoutY="185.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
-      <CheckBox fx:id="checkEdit" layoutX="14.0" layoutY="217.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="179.0" text="Редактировать владельцев" textFill="#e8a60e" />
+      <TextField fx:id="mproc1" editable="false" layoutX="174.0" layoutY="185.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
+      <TextField fx:id="mproc2" editable="false" layoutX="174.0" layoutY="214.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
+      <CheckBox fx:id="checkEdit" layoutX="19.0" layoutY="279.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="179.0" text="Редактировать владельцев" textFill="#e8a60e" />
       <Button fx:id="changeC1" layoutX="331.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
          <font>
             <Font size="10.0" />
@@ -40,19 +40,35 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="changeP1" layoutX="331.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
+      <Button fx:id="changeP1" layoutX="331.0" layoutY="185.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="changeP2" layoutX="331.0" layoutY="185.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
+      <Button fx:id="changeP2" layoutX="331.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
       <Button fx:id="createcon1" layoutX="331.0" layoutY="98.0" mnemonicParsing="false" text="Создать" visible="false" />
       <Button fx:id="createcon2" layoutX="331.0" layoutY="127.0" mnemonicParsing="false" text="Создать" visible="false" />
-      <Button fx:id="createproc1" layoutX="331.0" layoutY="156.0" mnemonicParsing="false" text="Создать" visible="false" />
-      <Button fx:id="createproc2" layoutX="331.0" layoutY="185.0" mnemonicParsing="false" text="Создать" visible="false" />
+      <Button fx:id="createproc1" layoutX="332.0" layoutY="185.0" mnemonicParsing="false" text="Создать" visible="false" />
+      <Button fx:id="createproc2" layoutX="332.0" layoutY="214.0" mnemonicParsing="false" text="Создать" visible="false" />
+      <TextField fx:id="con3" editable="false" layoutX="14.0" layoutY="156.0" prefHeight="25.0" prefWidth="154.0" promptText="Control Резервный2" />
+      <TextField fx:id="mcon3" editable="false" layoutX="174.0" layoutY="156.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
+      <TextField fx:id="proc3" editable="false" layoutX="14.0" layoutY="243.0" prefHeight="25.0" prefWidth="154.0" promptText="Processing резервный2" />
+      <TextField fx:id="mproc3" editable="false" layoutX="174.0" layoutY="243.0" prefHeight="25.0" prefWidth="154.0" promptText="mail" />
+      <Button fx:id="changeC3" layoutX="331.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="changeP3" layoutX="331.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" text="Изменить" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button fx:id="createcon3" layoutX="333.0" layoutY="156.0" mnemonicParsing="false" text="Создать" visible="false" />
+      <Button fx:id="createproc3" layoutX="333.0" layoutY="243.0" mnemonicParsing="false" text="Создать" visible="false" />
    </children>
 </AnchorPane>

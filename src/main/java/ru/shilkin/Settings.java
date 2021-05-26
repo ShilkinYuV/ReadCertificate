@@ -35,6 +35,14 @@ public class Settings {
     @FXML public Button createcon2;
     @FXML public Button createproc1;
     @FXML public Button createproc2;
+    @FXML public TextField con3;
+    @FXML public TextField mcon3;
+    @FXML public TextField proc3;
+    @FXML public TextField mproc3;
+    @FXML public Button changeC3;
+    @FXML public Button changeP3;
+    @FXML public Button createcon3;
+    @FXML public Button createproc3;
     DbConnect dbConnect;
     public void initialize() {
 
@@ -68,6 +76,24 @@ public class Settings {
                 createcon2.setVisible(false);
                 con2.setEditable(false);
                 mcon2.setEditable(false);
+            }
+        }catch(SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        dbConnect.closeCon();
+
+        dbConnect = new DbConnect();
+        ResultSet rsC3 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'control3';");
+        try{
+            if(!rsC3.isBeforeFirst()){
+                checkEdit.setVisible(false);
+                createcon3.setVisible(true);
+                con3.setEditable(true);
+                mcon3.setEditable(true);
+            }else {
+                createcon3.setVisible(false);
+                con3.setEditable(false);
+                mcon3.setEditable(false);
             }
         }catch(SQLException throwables) {
             throwables.printStackTrace();
@@ -110,6 +136,24 @@ public class Settings {
         }
         dbConnect.closeCon();
 
+        dbConnect = new DbConnect();
+        ResultSet rsP3 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'processing3';");
+        try{
+            if(!rsP3.isBeforeFirst()){
+                checkEdit.setVisible(false);
+                createproc3.setVisible(true);
+                proc3.setEditable(true);
+                mproc3.setEditable(true);
+            }else {
+                createproc3.setVisible(false);
+                proc3.setEditable(false);
+                mproc3.setEditable(false);
+            }
+        }catch(SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        dbConnect.closeCon();
+
 
         periodCert.setText(sPeriodCert);
         intervalProv.setText(sIntervalProv);
@@ -129,29 +173,41 @@ public class Settings {
             if(checkEdit.isSelected()){
                 con1.setEditable(true);
                 con2.setEditable(true);
+                con3.setEditable(true);
                 proc1.setEditable(true);
                 proc2.setEditable(true);
+                proc3.setEditable(true);
                 mcon1.setEditable(true);
                 mcon2.setEditable(true);
+                mcon3.setEditable(true);
                 mproc1.setEditable(true);
                 mproc2.setEditable(true);
+                mproc3.setEditable(true);
                 changeC1.setVisible(true);
                 changeC2.setVisible(true);
+                changeC3.setVisible(true);
                 changeP1.setVisible(true);
                 changeP2.setVisible(true);
+                changeP3.setVisible(true);
             }else {
                 con1.setEditable(false);
                 con2.setEditable(false);
+                con3.setEditable(false);
                 proc1.setEditable(false);
                 proc2.setEditable(false);
+                proc3.setEditable(false);
                 mcon1.setEditable(false);
                 mcon2.setEditable(false);
+                mcon3.setEditable(false);
                 mproc1.setEditable(false);
                 mproc2.setEditable(false);
+                mproc3.setEditable(false);
                 changeC1.setVisible(false);
                 changeC2.setVisible(false);
+                changeC3.setVisible(false);
                 changeP1.setVisible(false);
                 changeP2.setVisible(false);
+                changeP3.setVisible(false);
             }
         });
 
@@ -165,6 +221,11 @@ public class Settings {
             changeC2.setVisible(false);
         });
 
+        changeC3.setOnAction(actionEvent -> {
+            dbConnect.updAdmin(con3.getText().trim(),mcon3.getText().trim(), "control3");
+            changeC3.setVisible(false);
+        });
+
         changeP1.setOnAction(actionEvent -> {
             dbConnect.updAdmin(proc1.getText().trim(),mproc1.getText().trim(), "processing1");
             changeP1.setVisible(false);
@@ -173,6 +234,11 @@ public class Settings {
         changeP2.setOnAction(actionEvent -> {
             dbConnect.updAdmin(proc2.getText().trim(),mproc2.getText().trim(), "processing2");
             changeP2.setVisible(false);
+        });
+
+        changeP3.setOnAction(actionEvent -> {
+            dbConnect.updAdmin(proc3.getText().trim(),mproc3.getText().trim(), "processing3");
+            changeP3.setVisible(false);
         });
 
         createcon1.setOnAction(actionEvent -> {
@@ -189,6 +255,13 @@ public class Settings {
             mcon2.setEditable(false);
         });
 
+        createcon3.setOnAction(actionEvent -> {
+            dbConnect.insAdmin(con3.getText().trim(),mcon3.getText().trim(), "control3");
+            createcon3.setVisible(false);
+            con3.setEditable(false);
+            mcon3.setEditable(false);
+        });
+
         createproc1.setOnAction(actionEvent -> {
             dbConnect.insAdmin(proc1.getText().trim(),mproc1.getText().trim(), "processing1");
             createproc1.setVisible(false);
@@ -201,6 +274,13 @@ public class Settings {
             createproc2.setVisible(false);
             proc2.setEditable(false);
             mproc2.setEditable(false);
+        });
+
+        createproc3.setOnAction(actionEvent -> {
+            dbConnect.insAdmin(proc3.getText().trim(),mproc3.getText().trim(), "processing3");
+            createproc3.setVisible(false);
+            proc3.setEditable(false);
+            mproc3.setEditable(false);
         });
     }
 
@@ -216,6 +296,10 @@ public class Settings {
                 con2.setText(rs.getString(1));
                 mcon2.setText(rs.getString(2));
             }
+            if(rs.getString(3).equals("control3")){
+                con3.setText(rs.getString(1));
+                mcon3.setText(rs.getString(2));
+            }
 
             if(rs.getString(3).equals("processing1")){
                 proc1.setText(rs.getString(1));
@@ -224,6 +308,10 @@ public class Settings {
             if(rs.getString(3).equals("processing2")){
                 proc2.setText(rs.getString(1));
                 mproc2.setText(rs.getString(2));
+            }
+            if(rs.getString(3).equals("processing3")){
+                proc3.setText(rs.getString(1));
+                mproc3.setText(rs.getString(2));
             }
         }
         dbConnect.closeCon();
