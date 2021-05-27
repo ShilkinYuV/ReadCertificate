@@ -30,7 +30,7 @@ public class App extends Application {
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/roskazna.png")));
             stage.setTitle("UFK4800_OIS_AMBER_CHEKER_CERT");
             stage.setScene(scene);
-            stage.setResizable(false);
+//            stage.setResizable(false);
             stage.show();
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override

@@ -102,7 +102,6 @@ public class PrimaryController {
     @FXML
     public void initialize() {
 
-
         setControl1();
         setControl2();
         setProcessing1();
@@ -541,11 +540,11 @@ public class PrimaryController {
 //        tId.setPrefWidth(45.0);
         tFio.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("fio"));
         tFio.setSortType(TableColumn.SortType.ASCENDING);
-        tFio.setPrefWidth(125.0);
+        tFio.setPrefWidth(156.0);
         tNumberKey.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("keyNum"));
         tNumberKey.setPrefWidth(185.0);
         tBeforeDate.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("beforeDate"));
-        tBeforeDate.setPrefWidth(150.0);
+        tBeforeDate.setPrefWidth(170.0);
         tAfterDate.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("afterDate"));
         tAfterDate.setPrefWidth(170.0);
         tCommentary.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("commentary"));
