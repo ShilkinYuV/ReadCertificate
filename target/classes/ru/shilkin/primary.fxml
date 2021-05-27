@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1350.0" style="-fx-background-color: #ffbf00;" styleClass="bodybg" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.PrimaryController">
+<AnchorPane fx:id="ancor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1350.0" style="-fx-background-color: #ffbf00;" styleClass="bodybg" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.PrimaryController">
    <children>
       <MenuBar maxHeight="-Infinity" maxWidth="1.7976931348623157E308" opacity="0.79" prefHeight="37.0" prefWidth="1350.0" stylesheets="@../../styletable.css" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0">
         <menus>
@@ -170,7 +170,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="table" layoutY="126.0" maxHeight="1.7976931348623157E308" minWidth="1020.0" opacity="0.95" prefHeight="542.0" prefWidth="1020.0" stylesheets="@../../styletable.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.topAnchor="126.0" />
+      <TableView fx:id="table" layoutY="126.0" maxHeight="1.7976931348623157E308" minWidth="1020.0" opacity="0.95" prefHeight="542.0" prefWidth="1020.0" stylesheets="@../../styletable.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="126.0" />
 
       <TextField fx:id="fio" layoutX="9.0" layoutY="86.0" opacity="0.83" prefHeight="37.0" prefWidth="156.0" promptText="Владелец" stylesheets="@../../styletable.css" />
       <TextField fx:id="numberKey" layoutX="165.0" layoutY="86.0" opacity="0.83" prefHeight="27.0" prefWidth="185.0" promptText="Номер ключа" stylesheets="@../../styletable.css" />
@@ -184,11 +184,11 @@
       <Button fx:id="find" defaultButton="true" layoutX="761.0" layoutY="88.0" mnemonicParsing="false" opacity="0.79" prefHeight="33.0" prefWidth="93.0" stylesheets="@../../styletable.css" text="Поиск" />
       <DatePicker fx:id="beforeDate" layoutX="350.0" layoutY="86.0" opacity="0.83" prefHeight="27.0" prefWidth="170.0" stylesheets="@../../styletable.css" />
       <DatePicker fx:id="afterDate" layoutX="520.0" layoutY="86.0" opacity="0.83" prefHeight="27.0" prefWidth="170.0" stylesheets="@../../styletable.css" />
-      <TextArea fx:id="vivod" editable="false" layoutX="1020.0" layoutY="126.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="542.0" prefWidth="330.0" styleClass="table-view" stylesheets="@../../styletable.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="1020.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
+      <TextArea fx:id="vivod" editable="false" layoutX="1020.0" layoutY="126.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="542.0" prefWidth="330.0" styleClass="table-view" stylesheets="@../../styletable.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
          <font>
             <Font name="System Bold" size="10.0" />
          </font></TextArea>
-      <ImageView fitHeight="364.0" fitWidth="286.0" layoutX="1042.0" layoutY="237.0" opacity="0.08" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="112.22222900390625" AnchorPane.leftAnchor="1042.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="237.0">
+      <ImageView fitHeight="364.0" fitWidth="286.0" layoutX="1042.0" layoutY="237.0" opacity="0.08" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="112.22222900390625" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="237.0">
          <image>
             <Image url="@../../images/roskazna.png" />
          </image>
