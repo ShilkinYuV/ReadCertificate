@@ -38,6 +38,15 @@
                            </image>
                         </ImageView>
                      </graphic></MenuItem>
+                  <MenuItem fx:id="beloshapko" mnemonicParsing="false" text="Control3">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/woman.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="golokov" mnemonicParsing="false" text="Processing1">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -54,6 +63,15 @@
                            </image>
                         </ImageView>
                      </graphic></MenuItem>
+                  <MenuItem fx:id="dagaev" mnemonicParsing="false" text="Processing3">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/woman.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
             </items>
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">

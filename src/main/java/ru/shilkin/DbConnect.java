@@ -131,18 +131,22 @@ public class DbConnect {
     }
 
     public String threadSelect(TextArea vivod, Boolean toMail, String sPeriodCert,
-                               String mailC1, String mailC2, String mailP1, String mailP2, String fioC1, String fioC2, String fioP1, String fioP2, Alert alert ){
+                               String mailC1, String mailC2, String mailC3, String mailP1, String mailP2, String mailP3, String fioC1, String fioC2, String fioC3, String fioP1, String fioP2, String fioP3, Alert alert ){
         ResultSet rs = null;
         String res = "";
         String messageShilkin = "";
         String messageGolokov = "";
         String messageBagninova = "";
         String messageLobanova = "";
+        String messageBeloshapko = "";
+        String messageDagaev = "";
 
         String mailShilkin = "";
         String mailGolokov = "";
         String mailBagninova = "";
         String mailLobanova = "";
+        String mailBeloshapko = "";
+        String mailDagaev = "";
 
         try{
 
@@ -177,6 +181,16 @@ public class DbConnect {
                     vivod.appendText(message);
                     messageLobanova = message;
                 }
+                if(message.contains(fioC3)){
+//                    System.out.println(message);
+                    vivod.appendText(message);
+                    messageBeloshapko = message;
+                }
+                if(message.contains(fioP3)){
+//                    System.out.println(message);
+                    vivod.appendText(message);
+                    messageDagaev = message;
+                }
 
                 mailShilkin = mailShilkin + messageShilkin;
                 messageShilkin = "";
@@ -186,6 +200,10 @@ public class DbConnect {
                 messageBagninova = "";
                 mailLobanova = mailLobanova + messageLobanova;
                 messageLobanova = "";
+                mailBeloshapko = mailBeloshapko + messageBeloshapko;
+                messageBeloshapko = "";
+                mailDagaev = mailDagaev + messageDagaev;
+                messageDagaev = "";
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -193,9 +211,9 @@ public class DbConnect {
 
 
 
-        if(mailShilkin != ""|mailGolokov != ""|mailBagninova != ""|mailLobanova != ""){
+        if(mailShilkin != ""|mailGolokov != ""|mailBagninova != ""|mailLobanova != ""|mailBeloshapko != ""|mailDagaev !=""){
             checkWarning = true;
-            alMess = mailShilkin + "\n" + mailGolokov + "\n" + mailBagninova + "\n" + mailLobanova + "\n";
+            alMess = mailShilkin + "\n" + mailGolokov + "\n" + mailBagninova + "\n" + mailLobanova + "\n" + mailBeloshapko + "\n" + mailDagaev + "\n";
                     alert.setTitle("Внимание!!!");
         alert.setContentText(alMess);
         alert.setHeaderText("ИСТЕКАЮТ СЕРТИФИКАТЫ");
@@ -246,8 +264,24 @@ public class DbConnect {
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailLobanova, mail, mailP2);
         }
-
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(mailBeloshapko != "" & toMail & !mailC3.equals("")){
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailBeloshapko, mail, mailC3);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(mailDagaev != "" & toMail & !mailP3.equals("")){
+            Sender sender = new Sender(mail, mailpass);
+            sender.send("Уведомление Янтарь", mailDagaev, mail, mailP3);
+        }
 
         return res;
     }

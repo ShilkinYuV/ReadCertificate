@@ -61,6 +61,9 @@ public class PrimaryController {
     @FXML public ProgressIndicator progress;
     @FXML public AnchorPane ancor;
     @FXML public Label countRow;
+    @FXML public MenuItem beloshapko;
+    @FXML public MenuItem dagaev;
+
     Settings settingss = new Settings();
     Alert alert = new Alert(Alert.AlertType.WARNING);
     Alert alertDubl = new Alert(Alert.AlertType.ERROR);
@@ -104,8 +107,10 @@ public class PrimaryController {
 
         setControl1();
         setControl2();
+        setControl3();
         setProcessing1();
         setProcessing2();
+        setProcessing3();
 
         progress.setVisible(false);
         progress.setStyle(" -fx-progress-color: red;");
@@ -115,8 +120,10 @@ public class PrimaryController {
             openNewScene("settings.fxml");
             setControl1();
             setControl2();
+            setControl3();
             setProcessing1();
             setProcessing2();
+            setProcessing3();
         });
 
         about.setOnAction(actionEvent -> {
@@ -414,6 +421,59 @@ public class PrimaryController {
 
         });
 
+        beloshapko.setOnAction(actionEvent -> {
+//            try {
+//                try {
+//                    readCertificate.readC(openCertificate.openC(), lobanova);
+//                } catch (CertificateException e) {
+//                    e.printStackTrace();
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            table.getItems().clear();
+//            tableViewZap.zapTableView(table, dbConnect.selEct());
+
+
+            try {
+                lFisF = openCertificate.openC();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            Thread threadRead = new Thread(() ->{
+                progress.setVisible(true);
+                try {
+                    readCertificate.readC(lFisF,beloshapko, alertDubl);
+                    if (!readCertificate.bool){
+                        Platform.runLater((() -> alertDubl.showAndWait()));
+                    }
+                    table.getItems().clear();
+                    tableViewZap.zapTableView(table, dbConnect.selEct(), dbConnect.selEctCount());
+                    Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+                    progress.setVisible(false);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (CertificateException e) {
+                    e.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            });
+            threadRead.start();
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    table.getItems().clear();
+                    tableViewZap.zapTableView(table, dbConnect.selEct(), dbConnect.selEctCount());
+                    Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+                }
+            });
+        });
+
         lobanova.setOnAction(actionEvent -> {
 //            try {
 //                try {
@@ -466,6 +526,60 @@ public class PrimaryController {
                 }
             });
         });
+
+        dagaev.setOnAction(actionEvent -> {
+//            try {
+//                try {
+//                    readCertificate.readC(openCertificate.openC(), lobanova);
+//                } catch (CertificateException e) {
+//                    e.printStackTrace();
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            table.getItems().clear();
+//            tableViewZap.zapTableView(table, dbConnect.selEct());
+
+
+            try {
+                lFisF = openCertificate.openC();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            Thread threadRead = new Thread(() ->{
+                progress.setVisible(true);
+                try {
+                    readCertificate.readC(lFisF,dagaev, alertDubl);
+                    if (!readCertificate.bool){
+                        Platform.runLater((() -> alertDubl.showAndWait()));
+                    }
+                    table.getItems().clear();
+                    tableViewZap.zapTableView(table, dbConnect.selEct(), dbConnect.selEctCount());
+                    Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+                    progress.setVisible(false);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (CertificateException e) {
+                    e.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            });
+            threadRead.start();
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    table.getItems().clear();
+                    tableViewZap.zapTableView(table, dbConnect.selEct(), dbConnect.selEctCount());
+                    Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+                }
+            });
+        });
+
 
         find.setOnAction(event -> {
             String variableFio = fio.getText().trim();
@@ -524,7 +638,7 @@ public class PrimaryController {
 
     void cicle () throws InterruptedException {
         while(checked){
-            dbConnect.threadSelect(vivod, toMail, settingss.sPeriodCert, mailC1, mailC2, mailP1, mailP2, fioC1, fioC2, fioP1, fioP2, alert);
+            dbConnect.threadSelect(vivod, toMail, settingss.sPeriodCert, mailC1, mailC2, mailC3, mailP1, mailP2, mailP3, fioC1, fioC2, fioC3, fioP1, fioP2, fioP3, alert);
             DbConnect dbWarninchek = new DbConnect();
             if(dbWarninchek.checkWarning){
                 Platform.runLater((() -> alert.showAndWait()));
@@ -617,6 +731,23 @@ public class PrimaryController {
         dbConnect.closeCon();
     }
 
+    void setControl3(){
+        dbConnect = new DbConnect();
+        ResultSet rsC3 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'control3';");
+        Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+        try{
+            while(rsC3.next()){
+                beloshapko.setText(rsC3.getString(2));
+                mailC3 = rsC3.getString(3);
+                fioC3 = rsC3.getString(2);
+            }
+
+        }catch(SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        dbConnect.closeCon();
+    }
+
     void setProcessing1(){
         dbConnect = new DbConnect();
         ResultSet rsP1 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'processing1';");
@@ -643,6 +774,23 @@ public class PrimaryController {
                 lobanova.setText(rsP2.getString(2));
                 mailP2 = rsP2.getString(3);
                 fioP2 = rsP2.getString(2);
+            }
+
+        }catch(SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        dbConnect.closeCon();
+    }
+
+    void setProcessing3(){
+        dbConnect = new DbConnect();
+        ResultSet rsP3 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'processing3';");
+        Platform.runLater((() -> countRow.setText("Количество строк: " + String.valueOf(table.getItems().size()))));
+        try{
+            while(rsP3.next()){
+                dagaev.setText(rsP3.getString(2));
+                mailP2 = rsP3.getString(3);
+                fioP2 = rsP3.getString(2);
             }
 
         }catch(SQLException throwables) {
