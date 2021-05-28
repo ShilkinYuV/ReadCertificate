@@ -789,8 +789,8 @@ public class PrimaryController {
         try{
             while(rsP3.next()){
                 dagaev.setText(rsP3.getString(2));
-                mailP2 = rsP3.getString(3);
-                fioP2 = rsP3.getString(2);
+                mailP3 = rsP3.getString(3);
+                fioP3 = rsP3.getString(2);
             }
 
         }catch(SQLException throwables) {

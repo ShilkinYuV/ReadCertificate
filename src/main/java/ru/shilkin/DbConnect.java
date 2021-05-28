@@ -161,11 +161,11 @@ public class DbConnect {
             vivod.clear();
             while(rs.next()){
                     String message = "Сертификат " + rs.getString(1) + " " + rs.getString(2) + " Истекает " + rs.getString(3) + " \n";
-                    if(message.contains(fioC1)){
+                if(message.contains(fioC1)){
 //                        System.out.println(message);
-                        vivod.appendText(message);
-                        messageShilkin = message;
-                    }
+                    vivod.appendText(message);
+                    messageShilkin = message;
+                }
                 if(message.contains(fioP1)){
 //                    System.out.println(message);
                     vivod.appendText(message);
