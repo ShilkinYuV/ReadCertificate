@@ -627,6 +627,7 @@ public class PrimaryController {
             beforeDate.setValue(null);
             afterDate.getEditor().clear();
             afterDate.setValue(null);
+            tofk.setText("");
         });
 }
 
