@@ -58,12 +58,12 @@ public class Save {
         cell.setCellValue("ТОФК");
         cell.setCellStyle(style);
 
-
+            int k = 1;
             for (DAOCertificate daoCertificate : tableView.getItems()){
             rownum++;
             row = sheet.createRow(rownum);
             cell = row.createCell(0, CellType.NUMERIC);
-            cell.setCellValue(daoCertificate.getId());
+            cell.setCellValue(k++);
             cell = row.createCell(1, CellType.STRING);
             cell.setCellValue(daoCertificate.getFio());
             cell = row.createCell(2, CellType.STRING);
@@ -75,6 +75,7 @@ public class Save {
             cell = row.createCell(5, CellType.STRING);
             cell.setCellValue(String.valueOf(daoCertificate.getCommentary()));
             }
+
         // записываем созданный в памяти Excel документ в файл
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Сохранить как");
