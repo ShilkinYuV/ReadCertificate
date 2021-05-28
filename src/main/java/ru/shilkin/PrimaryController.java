@@ -63,6 +63,7 @@ public class PrimaryController {
     @FXML public Label countRow;
     @FXML public MenuItem beloshapko;
     @FXML public MenuItem dagaev;
+    @FXML public TextField tofk;
 
     Settings settingss = new Settings();
     Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -587,6 +588,7 @@ public class PrimaryController {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.US);
             String variableBeforeDate;
             String variableAfterDate;
+            String variableTofk = tofk.getText().trim();
             if(beforeDate.getValue()==null){
                 variableBeforeDate = "";
             }else{
@@ -599,7 +601,7 @@ public class PrimaryController {
                 variableAfterDate = (afterDate.getValue()).format(formatter);
             }
 
-            if(variableFio.equals("") & variableNumberKey.equals("") & variableBeforeDate.equals("") & variableAfterDate.equals("")){
+            if(variableFio.equals("") & variableNumberKey.equals("") & variableBeforeDate.equals("") & variableAfterDate.equals("") & variableTofk.equals("")){
                 table.getItems().clear();
                 DbConnect dbConnect = new DbConnect();
                 tableViewZap.zapTableView(table, dbConnect.selEct(), dbConnect.selEctCount());
@@ -612,7 +614,8 @@ public class PrimaryController {
                         variableFio,
                         variableNumberKey,
                         variableBeforeDate,
-                        variableAfterDate
+                        variableAfterDate,
+                        variableTofk
                 ));
             }
         });

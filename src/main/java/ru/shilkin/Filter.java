@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Filter {
 
-    public String paramList(String variableFio, String variableNumberKey, String variableBeforeDate, String variableAfterDate){
+    public String paramList(String variableFio, String variableNumberKey, String variableBeforeDate, String variableAfterDate, String variableTofk){
         String query = "SELECT * FROM " + Const.TABLE + " WHERE ";
         Map<String, String> paramsMap = new LinkedHashMap<>();
 
@@ -13,6 +13,7 @@ public class Filter {
         paramsMap.put(Const.NUMBER_KEY, variableNumberKey);
         paramsMap.put(Const.BEFORE_DATE, variableBeforeDate);
         paramsMap.put(Const.AFTER_DATE,variableAfterDate);
+        paramsMap.put(Const.TOFK,variableTofk);
 
         int i = 0;
         for(Map.Entry<String, String> item : paramsMap.entrySet()) {
