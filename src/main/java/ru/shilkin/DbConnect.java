@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DbConnect {
     Settings settings = new Settings();
@@ -209,12 +211,44 @@ public class DbConnect {
             e.printStackTrace();
         }
 
+        Pattern p = Pattern.compile("\\S");
+        Matcher mactcherCon1 = p.matcher(mailShilkin);
+        Matcher mactcherCon2 = p.matcher(mailBagninova);
+        Matcher mactcherCon3 = p.matcher(mailBeloshapko);
+        Matcher matcherProc1 = p.matcher(mailGolokov);
+        Matcher matcherProc2 = p.matcher(mailLobanova);
+        Matcher matcherProc3 = p.matcher(mailDagaev);
 
+        Matcher mactchermCon1 = p.matcher(mailC1);
+        Matcher mactchermCon2 = p.matcher(mailC2);
+        Matcher mactchermCon3 = p.matcher(mailC3);
+        Matcher matchermProc1 = p.matcher(mailP1);
+        Matcher matchermProc2 = p.matcher(mailP2);
+        Matcher matchermProc3 = p.matcher(mailP3);
 
-        if(mailShilkin != ""|mailGolokov != ""|mailBagninova != ""|mailLobanova != ""|mailBeloshapko != ""|mailDagaev !=""){
+        if(mactcherCon1.find()|mactcherCon2.find()|mactcherCon3.find()|matcherProc1.find()|matcherProc2.find()|matcherProc3.find()){
             checkWarning = true;
-            alMess = mailShilkin + "\n" + mailGolokov + "\n" + mailBagninova + "\n" + mailLobanova + "\n" + mailBeloshapko + "\n" + mailDagaev + "\n";
-                    alert.setTitle("Внимание!!!");
+            alMess = "";
+            if(mactcherCon1.find()){
+                alMess += mailShilkin + "\n";
+            }
+            if(mactcherCon2.find()){
+                alMess += mailBagninova + "\n";
+            }
+            if(mactcherCon3.find()){
+                alMess += mailBeloshapko + "\n";
+            }
+            if(matcherProc1.find()){
+                alMess += mailGolokov + "\n";
+            }
+            if(matcherProc2.find()){
+                alMess += mailLobanova + "\n";
+            }
+            if(matcherProc3.find()){
+                alMess += mailDagaev + "\n";
+            }
+
+        alert.setTitle("Внимание!!!");
         alert.setContentText(alMess);
         alert.setHeaderText("ИСТЕКАЮТ СЕРТИФИКАТЫ");
         }else {
@@ -232,7 +266,7 @@ public class DbConnect {
         mailpass  = properties.getProperty("mailpass");
 
 
-        if(mailShilkin != "" & toMail & !mailC1.equals("")){
+        if(mactcherCon1.find() & toMail & mactchermCon1.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailShilkin, mail , mailC1);
         }
@@ -242,7 +276,7 @@ public class DbConnect {
             e.printStackTrace();
         }
 
-        if(mailGolokov != "" & toMail & !mailP1.equals("")){
+        if(matcherProc1.find() & toMail & matchermProc1.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailGolokov, mail, mailP1);
         }
@@ -251,7 +285,8 @@ public class DbConnect {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(mailBagninova != "" & toMail & !mailC2.equals("")){
+
+        if(mactcherCon2.find() & toMail & mactchermCon2.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailBagninova, mail, mailC2);
         }
@@ -260,7 +295,8 @@ public class DbConnect {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(mailLobanova != "" & toMail & !mailP2.equals("")){
+
+        if(matcherProc2.find() & toMail & matchermProc2.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailLobanova, mail, mailP2);
         }
@@ -269,7 +305,7 @@ public class DbConnect {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(mailBeloshapko != "" & toMail & !mailC3.equals("")){
+        if(mactcherCon3.find() & toMail & mactchermCon3.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailBeloshapko, mail, mailC3);
         }
@@ -278,7 +314,8 @@ public class DbConnect {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(mailDagaev != "" & toMail & !mailP3.equals("")){
+
+        if(matcherProc3.find() & toMail & matchermProc3.find()){
             Sender sender = new Sender(mail, mailpass);
             sender.send("Уведомление Янтарь", mailDagaev, mail, mailP3);
         }
