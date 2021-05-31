@@ -25,6 +25,8 @@ public class Save {
     void saveTable(TableView<DAOCertificate> tableView, ImageView save) {
         if (settingss.sPeriodCert == null) {
             period = settingss.sPeriodCert = "30";
+        }else{
+            period = settingss.sPeriodCert;
         }
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("Employees sheet");
