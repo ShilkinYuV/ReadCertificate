@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="447.0" prefWidth="396.0" styleClass="bodybg2" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.ChekProperty">
+<AnchorPane prefHeight="520.0" prefWidth="470.0" styleClass="bodybg2" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.ChekProperty">
    <children>
-      <Label layoutX="20.0" layoutY="14.0" prefHeight="137.0" prefWidth="361.0" text="Добрый день, Вы запустили данное приложение впервые, пожалуйста введите данные необходимые для соединения с БД и отправки почты" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label layoutX="20.0" layoutY="14.0" prefHeight="189.0" prefWidth="439.0" text="Добрый день, Вы запустили данное приложение впервые. Введите данные необходимые для соединения с БД и отправки почты. Файл с настройками будет расположен: С:\\Янтарь\settingsdb.properties. В дальнейшем параметры возможно изменять напрямую в файле настроек" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <VBox layoutX="17.0" layoutY="164.0" prefHeight="101.0" prefWidth="361.0">
+      <VBox layoutX="17.0" layoutY="235.0" prefHeight="225.0" prefWidth="431.0">
          <children>
             <TextField fx:id="localhost" promptText="IP адрес сервера БД" />
             <TextField fx:id="namedb" promptText="Имя БД" />
@@ -28,6 +28,6 @@
             <PasswordField fx:id="mailpass" promptText="Пароль от почты отправителя" />
          </children>
       </VBox>
-      <Button fx:id="save" layoutX="259.0" layoutY="400.0" mnemonicParsing="false" stylesheets="@../../styletable.css" text="Сохранить" />
+      <Button fx:id="save" layoutX="329.0" layoutY="471.0" mnemonicParsing="false" stylesheets="@../../styletable.css" text="Сохранить" />
    </children>
 </AnchorPane>

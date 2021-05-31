@@ -9,8 +9,8 @@
 
 <AnchorPane prefHeight="318.0" prefWidth="426.0" styleClass="bodybg2" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.shilkin.Settings">
    <children>
-      <TextField fx:id="periodCert" layoutX="211.0" layoutY="20.0" prefHeight="25.0" prefWidth="87.0" />
-      <TextField fx:id="intervalProv" layoutX="211.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <TextField fx:id="periodCert" layoutX="211.0" layoutY="20.0" prefHeight="25.0" prefWidth="87.0" text="30" />
+      <TextField fx:id="intervalProv" layoutX="211.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" text="24" />
       <Label layoutX="14.0" layoutY="24.0" text="Количество дней до окончания" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />

@@ -40,7 +40,7 @@ public class App extends Application {
                 }
             });
         }else{
-            scene = new Scene(loadFXML("chekProperty"), 400, 450);
+            scene = new Scene(loadFXML("chekProperty"), 470, 520);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/roskazna.png")));
             stage.setTitle("System settings");
             stage.setScene(scene);

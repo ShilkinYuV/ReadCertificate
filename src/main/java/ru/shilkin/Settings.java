@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Settings {
-    static String sPeriodCert;
-    static String sIntervalProv;
+    static String sPeriodCert = "30";
+    static String sIntervalProv = "24";
 
 
     @FXML public Button ok;
@@ -45,7 +45,6 @@ public class Settings {
     @FXML public Button createproc3;
     DbConnect dbConnect;
     public void initialize() {
-
         dbConnect = new DbConnect();
         ResultSet rsC1 = dbConnect.paramSelect("SELECT * FROM public.\"AdminYantar\" WHERE role = 'control1';");
             try{
@@ -214,31 +213,43 @@ public class Settings {
         changeC1.setOnAction(actionEvent -> {
             dbConnect.updAdmin(con1.getText().trim(),mcon1.getText().trim(), "control1");
             changeC1.setVisible(false);
+            con1.setEditable(false);
+            mcon1.setEditable(false);
         });
 
         changeC2.setOnAction(actionEvent -> {
             dbConnect.updAdmin(con2.getText().trim(),mcon2.getText().trim(), "control2");
             changeC2.setVisible(false);
+            con2.setEditable(false);
+            mcon3.setEditable(false);
         });
 
         changeC3.setOnAction(actionEvent -> {
             dbConnect.updAdmin(con3.getText().trim(),mcon3.getText().trim(), "control3");
             changeC3.setVisible(false);
+            con3.setEditable(false);
+            mcon3.setEditable(false);
         });
 
         changeP1.setOnAction(actionEvent -> {
             dbConnect.updAdmin(proc1.getText().trim(),mproc1.getText().trim(), "processing1");
             changeP1.setVisible(false);
+            proc1.setEditable(false);
+            mproc1.setEditable(false);
         });
 
         changeP2.setOnAction(actionEvent -> {
             dbConnect.updAdmin(proc2.getText().trim(),mproc2.getText().trim(), "processing2");
             changeP2.setVisible(false);
+            proc2.setEditable(false);
+            mproc2.setEditable(false);
         });
 
         changeP3.setOnAction(actionEvent -> {
             dbConnect.updAdmin(proc3.getText().trim(),mproc3.getText().trim(), "processing3");
             changeP3.setVisible(false);
+            proc3.setEditable(false);
+            mproc3.setEditable(false);
         });
 
         createcon1.setOnAction(actionEvent -> {
