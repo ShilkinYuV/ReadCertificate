@@ -77,7 +77,7 @@ public class ChekProperty {
                 }
                 stageOld.hide();
             }else{
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Внимание");
                 alert.setContentText("Заполните все необходимые поля");
                 alert.setHeaderText(null);

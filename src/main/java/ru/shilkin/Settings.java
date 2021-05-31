@@ -3,12 +3,15 @@ package ru.shilkin;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Settings {
     static String sPeriodCert = "30";
@@ -157,9 +160,21 @@ public class Settings {
         periodCert.setText(sPeriodCert);
         intervalProv.setText(sIntervalProv);
         ok.setOnAction(actionEvent -> {
-            sPeriodCert =periodCert.getText();
-            sIntervalProv = intervalProv.getText();
-            ok.getScene().getWindow().hide();
+            Pattern p = Pattern.compile("\\D");
+            Matcher m1 = p.matcher(periodCert.getText());
+            Matcher m2 = p.matcher(intervalProv.getText());
+            if(m1.find() | periodCert.getText().equals("") | m2.find() | intervalProv.getText().equals("")){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Внимание");
+                alert.setContentText("Поля: количество дней до окончания, периодичность проверки не должны быть пустыми или иметь не числовые символы");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+            }else {
+                sPeriodCert = periodCert.getText();
+                sIntervalProv = intervalProv.getText();
+                ok.getScene().getWindow().hide();
+            }
+
         });
 
         try {
