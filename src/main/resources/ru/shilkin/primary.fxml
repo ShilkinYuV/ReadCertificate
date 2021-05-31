@@ -233,9 +233,9 @@
          </font>
       </Button>
       <ProgressIndicator fx:id="progress" layoutX="470.0" layoutY="390.0" prefHeight="40.0" prefWidth="79.0" AnchorPane.bottomAnchor="237.0" AnchorPane.topAnchor="387.0" />
-      <Label fx:id="countRow" layoutX="1185.0" layoutY="90.0" prefHeight="27.0" prefWidth="134.0" textFill="WHITE" AnchorPane.rightAnchor="9.0">
+      <Label fx:id="countRow" layoutX="1185.0" layoutY="90.0" prefHeight="27.0" prefWidth="139.0" textFill="WHITE" AnchorPane.rightAnchor="9.0">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold Italic" size="11.0" />
          </font></Label>
       <TextField fx:id="tofk" layoutX="690.0" layoutY="86.0" opacity="0.83" prefHeight="37.0" prefWidth="338.0" promptText="ТОФК" stylesheets="@../../styletable.css" />
    </children>
