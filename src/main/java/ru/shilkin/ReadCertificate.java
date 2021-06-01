@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class ReadCertificate {
@@ -97,8 +99,10 @@ public class ReadCertificate {
 
 
             DbConnect dbConnect = new DbConnect();
-//                String key = certIngo[59];
-                String result = key.substring(58);
+//           String key = certIngo[59];
+            String result = key.substring(58).trim();
+
+
             ResultSet rs = dbConnect.paramSelect("SELECT \"numberKey\" FROM public.\"CertificateStore\"");
                 while(rs.next()){
                     if(result.equals(rs.getString(1))){

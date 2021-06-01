@@ -39,11 +39,9 @@ public class TableViewZap {
             while (resultSet.next()) {
 
                 DAOCertificate daoCertificate = new DAOCertificate();
-//                daoCertificate.setId(resultSet.getInt(1));
-//                daoCertificate.setId(list.get(k++));
-//                daoCertificate.setId(tableView.getItems().indexOf(daoCertificate.getKeyNum()) + 1);
+
                 daoCertificate.setFio(resultSet.getString(2));
-                daoCertificate.setKeyNum(resultSet.getString(3));
+                daoCertificate.setKeyNum(resultSet.getString(3).trim());
                 daoCertificate.setBeforeDate(resultSet.getDate(4));
                 daoCertificate.setAfterDate(resultSet.getDate(5));
                 daoCertificate.setCommentary(resultSet.getString(6));
@@ -53,7 +51,6 @@ public class TableViewZap {
             e.printStackTrace();
         }
         tableView.setItems(ls);
-
-    }
+            }
 
 }

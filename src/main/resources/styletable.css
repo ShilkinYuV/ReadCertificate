@@ -141,3 +141,8 @@
 .button:default:hover {
     -fx-background-color: derive(-fx-focus-color,30%);
 }
+
+.table-view .table-cell{
+    -fx-font-size:15px;
+    -fx-alignment: CENTER-LEFT;
+}

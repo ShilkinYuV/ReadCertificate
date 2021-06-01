@@ -78,7 +78,7 @@ public class PrimaryController {
     TableViewZap tableViewZap = new TableViewZap();
     Filter filter = new Filter();
     Save save = new Save();
-//    TableColumn<DAOCertificate,String> tId = new TableColumn<DAOCertificate,String>("№");
+
     TableColumn<DAOCertificate,String> tFio = new TableColumn<DAOCertificate,String>("Владелец");
     TableColumn<DAOCertificate,String> tNumberKey = new TableColumn<DAOCertificate,String>("Номер ключа");
     TableColumn<DAOCertificate,String> tBeforeDate = new TableColumn<DAOCertificate, String>("Действует с");
@@ -88,7 +88,7 @@ public class PrimaryController {
     Boolean checked = true;
 
     List<FileInputStream> lFisF = new ArrayList<>();
-    String selectContentTable;
+    String selectContentTable = "";
     String mailC1 = "";
     String mailC2 = "";
     String mailC3 = "";
@@ -130,7 +130,7 @@ public class PrimaryController {
         about.setOnAction(actionEvent -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("INFO");
-            alert.setContentText("Болдаков АИ: Руководитель проекта \n" + "Кривошеина МА: Заместитель руководителя проекта \n" + "Шилкин ЮВ: КА Основной (Автор ПО) \n" + "Голоков ИК: ЗК Основной\n"  + "Лобанова ИМ: ЗК Резервный \n" + "Чулкин ДС: КА Резервный\n");
+            alert.setContentText("Болдаков АИ: Руководитель проекта \n" + "Кривошеина МВ: Заместитель руководителя проекта \n" + "Шилкин ЮВ: КА Основной (Автор ПО) \n" + "Голоков ИК: ЗК Основной\n"  + "Лобанова ИМ: ЗК Резервный \n" + "Чулкин ДС: КА Резервный\n");
             alert.setHeaderText("team Amber OIS UFK MO:");
             Optional<ButtonType> option = alert.showAndWait();
 
@@ -241,12 +241,10 @@ public class PrimaryController {
         //Получаем значение номера заявки из TableView
         TableView.TableViewSelectionModel<DAOCertificate> selectionModel = table.getSelectionModel();
         selectionModel.selectedItemProperty().addListener(new ChangeListener<DAOCertificate>(){
-
             public void changed(ObservableValue<? extends DAOCertificate> val, DAOCertificate oldVal, DAOCertificate newVal){
                 if(newVal != null) selectContentTable = newVal.getKeyNum();
             }
         });
-
 
         del.setOnAction(actionEvent -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -264,21 +262,6 @@ public class PrimaryController {
         });
 
         shilkin.setOnAction(actionEvent -> {
-
-//            try {
-//                try {
-//                    readCertificate.readC(openCertificate.openC(), shilkin);
-//                } catch (CertificateException e) {
-//                    e.printStackTrace();
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            table.getItems().clear();
-//            tableViewZap.zapTableView(table, dbConnect.selEct());
-
 
             try {
                 lFisF = openCertificate.openC();
@@ -318,20 +301,6 @@ public class PrimaryController {
         });
 
         golokov.setOnAction(actionEvent -> {
-//            try {
-//                try {
-//                    readCertificate.readC(openCertificate.openC(), golokov);
-//                } catch (CertificateException e) {
-//                    e.printStackTrace();
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            table.getItems().clear();
-//            tableViewZap.zapTableView(table, dbConnect.selEct());
-
 
             try {
                 lFisF = openCertificate.openC();
@@ -371,17 +340,6 @@ public class PrimaryController {
         });
 
         bagninova.setOnAction(actionEvent -> {
-//                try {
-//                    try {
-//                        readCertificate.readC(openCertificate.openC(), bagninova);
-//                    } catch (CertificateException e) {
-//                        e.printStackTrace();
-//                    } catch (SQLException throwables) {
-//                        throwables.printStackTrace();
-//                    }
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                }
 
             try {
                 lFisF = openCertificate.openC();
@@ -423,20 +381,6 @@ public class PrimaryController {
         });
 
         beloshapko.setOnAction(actionEvent -> {
-//            try {
-//                try {
-//                    readCertificate.readC(openCertificate.openC(), lobanova);
-//                } catch (CertificateException e) {
-//                    e.printStackTrace();
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            table.getItems().clear();
-//            tableViewZap.zapTableView(table, dbConnect.selEct());
-
 
             try {
                 lFisF = openCertificate.openC();
@@ -476,20 +420,6 @@ public class PrimaryController {
         });
 
         lobanova.setOnAction(actionEvent -> {
-//            try {
-//                try {
-//                    readCertificate.readC(openCertificate.openC(), lobanova);
-//                } catch (CertificateException e) {
-//                    e.printStackTrace();
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            table.getItems().clear();
-//            tableViewZap.zapTableView(table, dbConnect.selEct());
-
 
             try {
                 lFisF = openCertificate.openC();
@@ -529,20 +459,6 @@ public class PrimaryController {
         });
 
         dagaev.setOnAction(actionEvent -> {
-//            try {
-//                try {
-//                    readCertificate.readC(openCertificate.openC(), lobanova);
-//                } catch (CertificateException e) {
-//                    e.printStackTrace();
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            table.getItems().clear();
-//            tableViewZap.zapTableView(table, dbConnect.selEct());
-
 
             try {
                 lFisF = openCertificate.openC();
@@ -652,10 +568,7 @@ public class PrimaryController {
     }
 
     void widthStTablr(){
-//        tId.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("id"));
-//        tId.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<Number>(
-//                table.getItems().indexOf(cellData.getValue()) + 1));
-//        tId.setPrefWidth(45.0);
+
         tFio.setCellValueFactory(new PropertyValueFactory<DAOCertificate, String>("fio"));
         tFio.setSortType(TableColumn.SortType.ASCENDING);
         tFio.setPrefWidth(156.0);
